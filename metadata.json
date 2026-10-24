@@ -1,0 +1,6 @@
+{
+  "name": "TAWAZONE | منصة الصحة الشاملة",
+  "description": "منصة TAWAZONE العربية المتكاملة للصحة النفسية والجسدية والعقلية والروحية مع فيديو هادئ وقارئ صوتي ونظام تسجيل للزوار.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

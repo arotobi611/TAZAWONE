@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>توازن | TAWAZON</title>
+<meta name="description" content="توازن: محتوى عربي موثوق عن العلاج النفسي والعناية الجسدية وتنمية العقل والصحة الروحية.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#1E5AA8;
+  --blue-dark:#133C75;
+  --blue-light:#7FB8E8;
+  --blue-soft:#E8F3FC;
+  --white:#FFFFFF;
+  --text:#0F2A4A;
+  --muted:#4F6480;
+  --border:#D5E6F5;
+  --radius:16px;
+  --shadow:0 6px 20px rgba(30,90,168,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;font-family:"Cairo",system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;color:var(--text);background:var(--white);line-height:1.8;padding-top:env(safe-area-inset-top,0px)}
+a{color:var(--blue);text-decoration:none}
+img,svg{max-width:100%}
+.wrap{width:min(1100px,92%);margin-inline:auto}
+
+header{position:sticky;top:0;z-index:20;background:var(--white);border-bottom:1px solid var(--border)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--blue-dark);font-size:1.15rem}
+.brand small{font-weight:600;color:var(--blue);font-size:.8rem;direction:ltr}
+nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav a{display:block;padding:6px 10px;border-radius:10px;color:var(--text);font-weight:600;font-size:.9rem}
+nav a:hover{background:var(--blue-soft);color:var(--blue)}
+.menu-btn{display:none;border:1px solid var(--border);background:var(--blue-soft);color:var(--blue-dark);border-radius:10px;padding:6px 12px;font:inherit;cursor:pointer}
+@media (max-width:820px){
+  .menu-btn{display:block}
+  nav{display:none;width:100%}
+  nav.open{display:block}
+  nav ul{flex-direction:column}
+  .bar{flex-wrap:wrap}
+}
+
+.search{margin:14px 0 0;display:flex;gap:8px}
+.search input{flex:1;padding:12px 16px;border:1px solid var(--border);border-radius:12px;font:inherit;font-size:1rem;background:var(--white);color:var(--text)}
+.search input:focus{outline:2px solid var(--blue-light);border-color:var(--blue)}
+
+.hero{background:linear-gradient(160deg,var(--blue) 0%,var(--blue-light) 100%);color:var(--white);padding:70px 0 80px;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);margin:0 0 10px;font-weight:800}
+.hero p{font-size:1.15rem;max-width:620px;margin:0 0 24px;opacity:.95}
+.btn{display:inline-block;background:var(--white);color:var(--blue-dark);padding:12px 26px;border-radius:999px;font-weight:700;border:none;cursor:pointer;font:inherit;font-weight:700}
+.btn:hover{background:var(--blue-soft)}
+.btn.ghost{background:transparent;color:var(--white);border:2px solid var(--white);margin-inline-start:8px}
+.btn.ghost:hover{background:rgba(255,255,255,.12)}
+.hero svg.deco{position:absolute;left:-60px;bottom:-80px;width:360px;opacity:.18}
+
+section{padding:56px 0}
+section.alt{background:var(--blue-soft)}
+h2{font-size:1.7rem;color:var(--blue-dark);margin:0 0 6px}
+.lead{color:var(--muted);margin:0 0 26px}
+
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);transition:transform .2s ease}
+.card:hover{transform:translateY(-3px)}
+.card .ico{width:52px;height:52px;border-radius:14px;background:var(--blue-soft);display:grid;place-items:center;margin-bottom:12px}
+.card h3{margin:0 0 6px;color:var(--blue-dark);font-size:1.15rem}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+.tag{display:inline-block;margin-top:10px;font-size:.78rem;color:var(--blue);background:var(--blue-soft);padding:2px 10px;border-radius:999px}
+
+.pillars{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));margin-top:20px}
+.pillars a{display:block;padding:18px;border-radius:14px;background:var(--white);border:1px solid var(--border);color:var(--text);font-weight:700}
+.pillars a span{display:block;font-weight:500;color:var(--muted);font-size:.88rem;margin-top:4px}
+
+.notice{background:var(--white);border-inline-start:4px solid var(--blue);padding:14px 18px;border-radius:10px;color:var(--muted);font-size:.93rem;margin-top:22px}
+
+.book{display:flex;gap:14px;align-items:flex-start}
+.book .cover{flex:0 0 74px;height:104px;border-radius:8px;background:linear-gradient(180deg,var(--blue),var(--blue-light));display:grid;place-items:center;color:var(--white);font-weight:800;font-size:.8rem;text-align:center;padding:6px}
+
+form.contact{display:grid;gap:12px;max-width:620px}
+form.contact input,form.contact select,form.contact textarea{padding:12px 14px;border:1px solid var(--border);border-radius:12px;font:inherit;background:var(--white);color:var(--text);width:100%}
+form.contact textarea{min-height:120px;resize:vertical}
+form.contact input:focus,form.contact textarea:focus{outline:2px solid var(--blue-light);border-color:var(--blue)}
+
+.share{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.share a,.share button{padding:9px 16px;border-radius:999px;border:1px solid var(--blue);background:var(--white);color:var(--blue);font:inherit;font-weight:600;cursor:pointer}
+.share a:hover,.share button:hover{background:var(--blue);color:var(--white)}
+
+footer{background:var(--blue-dark);color:var(--white);padding:40px 0 28px}
+footer a{color:var(--white);opacity:.9}
+footer .cols{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+footer h4{margin:0 0 8px}
+footer .small{font-size:.85rem;opacity:.8;margin-top:24px;border-top:1px solid rgba(255,255,255,.2);padding-top:16px}
+
+.hidden{display:none!important}
+.banner{margin:-22px -22px 16px;border-radius:var(--radius) var(--radius) 0 0;overflow:hidden;line-height:0}
+.banner svg{width:100%;height:auto;display:block}
+.hero svg.deco{opacity:.35}
+.audio{display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:var(--blue-soft);border-radius:14px;padding:12px 14px;margin:0 0 18px}
+.audio button{border:1px solid var(--blue);background:var(--white);color:var(--blue);border-radius:999px;padding:7px 16px;font:inherit;font-weight:700;cursor:pointer}
+.audio button:hover{background:var(--blue);color:#fff}
+.audio select{padding:6px 10px;border-radius:10px;border:1px solid var(--border);background:var(--white);color:var(--text);font:inherit}
+.audio .astatus{color:var(--muted);font-size:.9rem}
+.abar{width:100%;height:6px;background:var(--border);border-radius:99px;overflow:hidden}
+.abar span{display:block;height:100%;width:0;background:var(--blue);transition:width .3s}
+.card .ico svg,.theme-btn svg{stroke:var(--blue)}
+.card .ico{background:var(--blue-soft)}
+.theme-btn{border:1px solid var(--border);background:var(--blue-soft);border-radius:999px;width:40px;height:40px;display:grid;place-items:center;cursor:pointer;flex:0 0 auto;padding:0}
+.pillars a::before{content:"";display:block;width:26px;height:26px;margin-bottom:10px;background:var(--blue);-webkit-mask:url(data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2024%2024%27%3E%3Cpath%20d=%27M12%2021c-5-3-8-6-8-10a4%204%200%200%201%208-2%204%204%200%200%201%208%202c0%204-3%207-8%2010z%27/%3E%3C/svg%3E) center/contain no-repeat;mask:url(data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2024%2024%27%3E%3Cpath%20d=%27M12%2021c-5-3-8-6-8-10a4%204%200%200%201%208-2%204%204%200%200%201%208%202c0%204-3%207-8%2010z%27/%3E%3C/svg%3E) center/contain no-repeat}
+:root[data-theme="dark"]{--text:#E6F0FA;--muted:#A9BCD3;--border:#24466E;--blue:#6FAEE8;--blue-dark:#B9DCF8;--blue-light:#4A86C5;--blue-soft:#13294A;--white:#0B1A2E;--shadow:0 6px 20px rgba(0,0,0,.35);color-scheme:dark}
+:root[data-theme="dark"] .hero{background:linear-gradient(160deg,#123A6E 0%,#1E5AA8 100%);color:#fff}
+:root[data-theme="dark"] .btn.ghost{color:#fff;border-color:#fff}
+:root[data-theme="dark"] footer{background:#081A33;color:#fff}
+:root[data-theme="dark"] footer a{color:#fff}
+.post{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-bottom:26px}
+.post .meta{color:var(--blue);font-size:.85rem;font-weight:600;margin-bottom:6px}
+.post h3{color:var(--blue-dark);font-size:1.5rem;margin:0 0 10px}
+.post h4{color:var(--blue);font-size:1.15rem;margin:22px 0 6px}
+.post p,.post li{color:var(--text)}
+.post ul{padding-inline-start:22px}
+.post table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92rem;display:block;overflow-x:auto}
+.post th,.post td{border:1px solid var(--border);padding:8px 10px;text-align:right}
+.post th{background:var(--blue-soft);color:var(--blue-dark)}
+.post .note{background:var(--blue-soft);border-inline-start:4px solid var(--blue);padding:12px 16px;border-radius:10px;font-size:.92rem;color:var(--muted);margin-top:18px}
+.empty{color:var(--muted);text-align:center;padding:20px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id='gB' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#9FD0F5'/><stop offset='1' stop-color='#1E5AA8'/></linearGradient></defs>
+<symbol id='sHero' viewBox='0 0 300 160'><rect width='300' height='160' fill='url(#gB)'/><circle cx='60' cy='90' r='70' fill='#fff' opacity='.18'/><circle cx='240' cy='60' r='55' fill='#fff' opacity='.2'/><path d='M150 40v90M110 58h80M120 130h60' stroke='#fff' stroke-width='5' stroke-linecap='round'/><circle cx='110' cy='74' r='14' fill='#fff'/><circle cx='190' cy='74' r='14' fill='#fff'/></symbol>
+<symbol id='sPsych' viewBox='0 0 300 160'><rect width='300' height='160' fill='url(#gB)'/><path d='M0 110Q40 90 75 110T150 110T225 110T300 110V160H0Z' fill='#fff' opacity='.3'/><path d='M150 98c-30-20-40-34-40-46a20 20 0 0 1 40-6 20 20 0 0 1 40 6c0 12-10 26-40 46z' fill='#fff' opacity='.9'/></symbol>
+<symbol id='sBody' viewBox='0 0 300 160'><rect width='300' height='160' fill='url(#gB)'/><circle cx='220' cy='60' r='30' fill='#fff' opacity='.8'/><path d='M80 120C60 60 120 40 150 50C140 100 110 130 80 120Z' fill='#fff' opacity='.9'/><path d='M80 120L120 80' stroke='#1E5AA8' stroke-width='3' opacity='.5'/></symbol>
+<symbol id='sMind' viewBox='0 0 300 160'><rect width='300' height='160' fill='url(#gB)'/><path d='M70 60L150 40L230 70L120 110L200 120M150 40L120 110' stroke='#fff' stroke-width='2.5' opacity='.6' fill='none'/><g fill='#fff'><circle cx='70' cy='60' r='10'/><circle cx='150' cy='40' r='12'/><circle cx='230' cy='70' r='10'/><circle cx='120' cy='110' r='10'/><circle cx='200' cy='120' r='10'/></g></symbol>
+<symbol id='sSpirit' viewBox='0 0 300 160'><rect width='300' height='160' fill='url(#gB)'/><circle cx='150' cy='80' r='45' fill='#fff' opacity='.92'/><circle cx='168' cy='70' r='40' fill='#5FA3E0'/><g fill='#fff'><circle cx='60' cy='40' r='2.5'/><circle cx='240' cy='30' r='3'/><circle cx='250' cy='120' r='2.5'/><circle cx='40' cy='130' r='2'/></g></symbol>
+</svg>
+
+<header>
+  <div class="wrap">
+    <div class="bar">
+      <a class="brand" href="#top" id="top">
+        <svg width="40" height="40" viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="24" r="22" fill="#1E5AA8"/>
+          <path d="M10 27h28" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          <path d="M24 13v14" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="15" cy="32" r="4" fill="#7FB8E8"/>
+          <circle cx="33" cy="32" r="4" fill="#7FB8E8"/>
+        </svg>
+        <span>توازن <small>TAWAZON</small></span>
+      </a>
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="الوضع الداكن"></button>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainnav">القائمة</button>
+      <nav id="mainnav" aria-label="القائمة الرئيسية">
+        <ul>
+          <li><a href="#top">الرئيسية</a></li>
+          <li><a href="#psych">العلاج النفسي</a></li>
+          <li><a href="#body">العلاج الجسدي</a></li>
+          <li><a href="#mind">العلاج العقلي</a></li>
+          <li><a href="#spirit">العلاج الروحي</a></li>
+          <li><a href="#library">المكتبة والكتب</a></li>
+          <li><a href="#articles">المقالات الجديدة</a></li>
+          <li><a href="#community">مجتمع الزوار</a></li>
+          <li><a href="#submit">اكتب وانشر مقالك</a></li>
+          <li><a href="#about">من نحن</a></li>
+          <li><a href="#contact">اتصل بنا</a></li>
+          <li><a href="https://www.youtube.com/@MadhaqTabiei" target="_blank" rel="noopener">يوتيوب</a></li>
+          <li><a href="https://wa.me/212725968984" target="_blank" rel="noopener">واتساب</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="search" role="search">
+      <input type="search" id="q" placeholder="ابحث في المقالات والأقسام والكتب..." aria-label="بحث">
+    </div>
+  </div>
+</header>
+
+<main>
+
+<div class="hero" id="home">
+  <svg class="deco" viewBox="0 0 300 160" aria-hidden="true"><use href="#sHero"/></svg>
+  <div class="wrap" style="position:relative">
+    <h1>توازن</h1>
+    <p>مساحة هادئة لتحسين جودة حياتك: عقل متزن، وجسد نشيط، ونفس مطمئنة، وروح ساكنة.</p>
+    <a class="btn" href="#articles">استكشف المقالات</a>
+    <a class="btn ghost" href="#submit">انشر مقالك</a>
+    <a class="btn ghost" href="https://www.youtube.com/@MadhaqTabiei" target="_blank" rel="noopener">تابعنا على يوتيوب</a>
+  </div>
+</div>
+
+<section id="sections">
+  <div class="wrap">
+    <h2>أقسامنا الأربعة</h2>
+    <p class="lead">اختر المحور الذي تحتاجه الآن.</p>
+    <div class="grid">
+      <a class="card" href="#psych"><div class="banner"><svg viewBox="0 0 300 160"><use href="#sPsych"/></svg></div>
+        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1E5AA8" stroke-width="2"><path d="M12 21c-5-3-8-6-8-10a4 4 0 0 1 8-2 4 4 0 0 1 8 2c0 4-3 7-8 10z"/></svg></div>
+        <h3>العلاج النفسي</h3>
+        <p>القلق، الثقة بالنفس، المشاعر، العلاقات، والتعامل مع الضغوط.</p>
+      </a>
+      <a class="card" href="#body"><div class="banner"><svg viewBox="0 0 300 160"><use href="#sBody"/></svg></div>
+        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1E5AA8" stroke-width="2"><circle cx="12" cy="5" r="2"/><path d="M12 8v6M8 11l4 2 4-2M10 22l2-8 2 8"/></svg></div>
+        <h3>العلاج الجسدي</h3>
+        <p>التغذية، النوم، الحركة، الترطيب، والعادات الصحية اليومية.</p>
+      </a>
+      <a class="card" href="#mind"><div class="banner"><svg viewBox="0 0 300 160"><use href="#sMind"/></svg></div>
+        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1E5AA8" stroke-width="2"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10c.6.6 1 1.5 1 2.5h6c0-1 .4-1.9 1-2.5A6 6 0 0 0 12 3z"/></svg></div>
+        <h3>العلاج العقلي</h3>
+        <p>التركيز، الذاكرة، التفكير النقدي، تنظيم الوقت، والانضباط الذاتي.</p>
+      </a>
+      <a class="card" href="#spirit"><div class="banner"><svg viewBox="0 0 300 160"><use href="#sSpirit"/></svg></div>
+        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1E5AA8" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>العلاج الروحي</h3>
+        <p>السكينة، الامتنان، الصبر، والتوازن بين العبادة والعمل والحياة.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="psych">
+  <div class="wrap">
+    <h2>العلاج النفسي</h2>
+    <p class="lead">القلق والتوتر، الحزن، الخوف، الثقة بالنفس، فهم المشاعر، العلاقات، الوحدة، الاسترخاء، التأمل، النوم، والغضب.</p>
+    <div class="pillars">
+      <a href="#articles">القلق والتوتر<span>مقالات قريبًا</span></a>
+      <a href="#articles">الثقة بالنفس<span>مقالات قريبًا</span></a>
+      <a href="#articles">تمارين التنفس<span>مقالات قريبًا</span></a>
+      <a href="#articles">طلب المساعدة النفسية<span>مقالات قريبًا</span></a>
+    </div>
+    <div class="notice">المحتوى في هذا القسم تثقيفي ولا يُغني عن استشارة مختص نفسي معتمد.</div>
+  </div>
+</section>
+
+<section id="body">
+  <div class="wrap">
+    <h2>العلاج الجسدي</h2>
+    <p class="lead">التغذية المتوازنة، صحة الهضم، النشاط البدني، التمدد، والعناية بالجسد والطاقة اليومية.</p>
+    <div class="pillars">
+      <a href="#articles">التغذية المتوازنة<span>مقالات قريبًا</span></a>
+      <a href="#articles">النوم والراحة<span>مقالات قريبًا</span></a>
+      <a href="#articles">تمارين التمدد<span>مقالات قريبًا</span></a>
+      <a href="#articles">الترطيب وشرب الماء<span>مقالات قريبًا</span></a>
+    </div>
+    <div class="notice">الأعشاب والأغذية هنا معلومات تثقيفية، وليست بديلًا عن الدواء أو الرعاية الطبية.</div>
+  </div>
+</section>
+
+<section class="alt" id="mind">
+  <div class="wrap">
+    <h2>العلاج العقلي</h2>
+    <p class="lead">تنمية التركيز والذاكرة والتفكير المنظم، مع تمارين عملية وتحديات يومية.</p>
+    <div class="pillars">
+      <a href="#articles">التركيز والانتباه<span>مقالات قريبًا</span></a>
+      <a href="#articles">تنظيم الوقت<span>مقالات قريبًا</span></a>
+      <a href="#articles">التخلص من التسويف<span>مقالات قريبًا</span></a>
+      <a href="#articles">اتخاذ القرارات<span>مقالات قريبًا</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="spirit">
+  <div class="wrap">
+    <h2>العلاج الروحي</h2>
+    <p class="lead">السكينة والمعنى والقيم والممارسات الروحية، باحترام للإسلام وتنوع المعتقدات.</p>
+    <div class="pillars">
+      <a href="#articles">السكينة والطمأنينة<span>مقالات قريبًا</span></a>
+      <a href="#articles">الامتنان والشكر<span>مقالات قريبًا</span></a>
+      <a href="#articles">الصبر والرضا<span>مقالات قريبًا</span></a>
+      <a href="#articles">التعامل مع الحزن والفقد<span>مقالات قريبًا</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="articles">
+  <div class="wrap">
+    <h2>المقالات الجديدة</h2>
+    <p class="lead">هذه بطاقات تجريبية لتوضيح التصميم، وستُستبدل بمقالات حقيقية.</p>
+    <article class="post" id="article-1">
+  <div class="audio" data-target="article-1">
+    <button class="aplay" type="button">استمع إلى المقال</button>
+    <button class="astop" type="button">إيقاف</button>
+    <label>السرعة <select class="aspeed"><option value="0.6">0.6x</option><option value="0.75">0.75x</option><option value="1" selected>1x</option><option value="1.25">1.25x</option><option value="1.5">1.5x</option><option value="2">2x</option></select></label>
+    <span class="astatus"></span>
+    <div class="abar"><span></span></div>
+  </div>
+  <div class="meta">العلاج النفسي · السكينة والتوتر · مدة القراءة: 8–10 دقائق</div>
+  <h3>كيف تستعيد هدوءك النفسي في عالم مليء بالضجيج؟</h3>
+
+  <h4>مقدمة: لماذا أصبح الهدوء صعبًا؟</h4>
+  <p>نعيش في عالم يطلب منا الانتباه باستمرار. رسائل تصل إلينا، وأخبار تتجدد، ومقاطع قصيرة تتوالى، وأعمال تنتظر الإنجاز، وأفكار تتزاحم في أذهاننا حتى في اللحظات التي نحاول فيها الراحة. وقد يجد الإنسان نفسه جالسًا في مكان هادئ، لكنه يشعر داخليًا وكأنه يركض خلف عشرات الأشياء في وقت واحد.</p>
+  <p>المشكلة ليست دائمًا في كثرة المسؤوليات، بل قد تكون أيضًا في الطريقة التي نتعامل بها مع أفكارنا، وفي عاداتنا اليومية، وفي عدم منح أنفسنا فرصة حقيقية للتوقف.</p>
+  <p>الهدوء النفسي لا يعني أن تختفي جميع المشكلات، أو ألا تشعر بالحزن والخوف والغضب أبدًا. إنه القدرة على التعامل مع هذه المشاعر دون أن تسيطر على حياتك بالكامل، والقدرة على العودة إلى التوازن بعد المرور بأوقات صعبة.</p>
+  <p>والأهم أن الهدوء ليس صفة يولد بها بعض الناس ويحرم منها آخرون بالضرورة؛ بل توجد عادات ومهارات يمكن تعلمها وتطويرها تدريجيًا.</p>
+
+  <h4>أولًا: افهم ما الذي يسرق هدوءك</h4>
+  <p>قبل البحث عن الحلول، حاول أن تلاحظ مصادر التوتر في حياتك. فقد يكون سبب الانزعاج واضحًا، مثل ضغط الدراسة أو العمل أو الخلافات، وقد يكون نتيجة تراكم عوامل صغيرة.</p>
+  <p>من هذه العوامل:</p>
+  <ul>
+    <li>الانتقال المستمر بين الهاتف والعمل والمحادثات.</li>
+    <li>قلة النوم أو عدم انتظام مواعيده.</li>
+    <li>محاولة إنجاز أشياء كثيرة في وقت واحد.</li>
+    <li>التفكير المتكرر في أحداث الماضي أو احتمالات المستقبل.</li>
+    <li>مقارنة حياتك بحياة الآخرين.</li>
+    <li>إهمال الراحة والحركة والطعام المنتظم.</li>
+    <li>محاولة إرضاء الجميع والخوف من خيبة أمل الآخرين.</li>
+  </ul>
+  <p>خصص ثلاثة أيام لملاحظة حالتك النفسية. كلما شعرت بالتوتر، اكتب ما كنت تفعله قبل ذلك، وما الفكرة التي مرت ببالك، وما الشعور الذي لاحظته. لا تحاول تغيير كل شيء مباشرة؛ يكفي أن تبدأ بفهم النمط الذي يتكرر.</p>
+
+  <h4>ثانيًا: تعلّم التوقف قبل الاستجابة</h4>
+  <p>عندما تشعر بالتوتر، قد تسرع في الكلام أو الأكل أو المشي، أو تتخذ قرارًا متسرعًا، أو تبحث مباشرة عن الهاتف لتشغل نفسك.</p>
+  <p>يمكنك تدريب نفسك على إنشاء مساحة صغيرة بين الشعور والتصرف. جرّب هذه الخطوات:</p>
+  <ul>
+    <li>توقف لحظة عندما تلاحظ التوتر.</li>
+    <li>اشعر بقدميك وهما تلامسان الأرض.</li>
+    <li>لاحظ ثلاثة أشياء تراها حولك.</li>
+    <li>أرخِ كتفيك ويديك وفكك برفق.</li>
+    <li>تنفس بصورة طبيعية، واجعل الزفير مريحًا دون إجبار نفسك على أخذ أنفاس عميقة.</li>
+    <li>اسأل نفسك: ما الذي أحتاج إليه الآن، وما الخطوة الصغيرة التي يمكنني القيام بها؟</li>
+  </ul>
+  <p>قد لا تختفي المشاعر فورًا، وهذا طبيعي. الهدف ليس إجبار نفسك على الهدوء، بل تجنب التصرف الآلي الذي قد يزيد التوتر.</p>
+
+  <h4>ثالثًا: استعد علاقتك باللحظة الحالية</h4>
+  <p>كثيرًا ما نؤدي أنشطتنا اليومية دون أن ننتبه إليها. نشرب الشاي بينما نفكر في الغد، ونتناول الطعام بينما نشاهد الهاتف، ونمشي بينما نسترجع محادثة قديمة.</p>
+  <p>يمكنك تحويل الأنشطة العادية إلى فرص بسيطة للتدرب على الانتباه. عندما تشرب الماء، لاحظ درجة حرارته وطعمه وحركة البلع. وعندما تمشي، لاحظ خطواتك والأصوات المحيطة بك. وعندما تتناول وجبة، امنح الطعام بعض انتباهك بدل الانشغال الدائم بمحتوى آخر.</p>
+  <p>لا تحتاج إلى تخصيص ساعة كاملة للتأمل. ابدأ بدقيقة واحدة، ثم زد المدة إذا وجدت ذلك مفيدًا. ومن المهم ألا تحوّل هذه الممارسة إلى واجب جديد تضغط به على نفسك. إذا تشتت ذهنك، أعد انتباهك بلطف إلى النشاط الذي تقوم به.</p>
+
+  <h4>رابعًا: قلّل الضجيج الرقمي</h4>
+  <p>قد تمنحك مشاهدة المقاطع القصيرة شعورًا مؤقتًا بالتسلية، لكن التنقل المستمر بين المحتويات قد يجعل بعض الأنشطة الهادئة تبدو مملة بالمقارنة.</p>
+  <p>لا تحتاج بالضرورة إلى التخلي عن الهاتف كليًا. ابدأ بتغيير طريقة استخدامه:</p>
+  <ul>
+    <li>خصص أوقاتًا محددة لتصفح الشبكات الاجتماعية.</li>
+    <li>أوقف الإشعارات غير الضرورية.</li>
+    <li>أبعد الهاتف عن مكان النوم.</li>
+    <li>تناول وجبة واحدة يوميًا دون شاشة.</li>
+    <li>خصص عشر دقائق للمشي أو القراءة دون محتوى رقمي.</li>
+    <li>لا تفتح تطبيقًا جديدًا في كل مرة تشعر فيها بالملل.</li>
+  </ul>
+  <p>في البداية، قد تشعر أن الوقت أصبح طويلًا أو أن ذهنك يبحث عن شيء يثيره. لا يعني ذلك أنك تفعل شيئًا خاطئًا؛ امنح نفسك فرصة لاكتشاف الأنشطة التي تستمتع بها بعيدًا عن التدفق المستمر للمعلومات.</p>
+
+  <h4>خامسًا: أنشئ روتينًا بسيطًا للسكينة</h4>
+  <p>يمكنك تجربة روتين يومي مرن يتكون من ثلاث مراحل.</p>
+  <p><strong>في الصباح:</strong> اجلس لبضع دقائق، واشرب الماء، وافتح النافذة أو اخرج إلى مكان مضيء إن أمكن، ثم حدد أهم مهمة واحدة تريد إنجازها.</p>
+  <p><strong>خلال النهار:</strong> خذ فترات راحة قصيرة، وتحرك قليلًا، وتوقف بين المهام بدل الانتقال المتسرع من نشاط إلى آخر.</p>
+  <p><strong>في المساء:</strong> خفف استخدام الشاشات قبل النوم إذا كانت تؤثر في نومك، واكتب ما يشغل ذهنك، واختر نشاطًا هادئًا مثل القراءة أو الاستماع إلى صوت مريح.</p>
+  <p>لا توجد ضرورة لتطبيق الروتين بصورة مثالية. الاستمرارية المعقولة أهم من المثالية المؤقتة.</p>
+
+  <h4>سادسًا: لا تجعل الهدوء وسيلة للهروب من المشكلات</h4>
+  <p>من الأخطاء الشائعة الاعتقاد بأن الشخص الهادئ يجب ألا يغضب أو يرفض طلبًا أو يواجه خلافًا. في الحقيقة، يمكن للإنسان أن يكون هادئًا وحازمًا في الوقت نفسه. قد تحتاج إلى وضع حدود مع الآخرين، أو تغيير عادة مؤذية، أو طلب المساعدة، أو مواجهة مشكلة كنت تؤجلها.</p>
+  <p>الهدوء الصحي لا يعني كبت المشاعر، بل فهمها والتعامل معها بطريقة مناسبة. إذا شعرت بالغضب، يمكنك الاعتراف به دون إيذاء نفسك أو الآخرين. وإذا شعرت بالحزن، يمكنك منح نفسك وقتًا للتعافي دون الحكم على نفسك بالضعف.</p>
+
+  <h4>برنامج تطبيقي لمدة سبعة أيام</h4>
+  <table>
+    <thead><tr><th>اليوم</th><th>الممارسة</th></tr></thead>
+    <tbody>
+      <tr><td>الأول</td><td>ملاحظة مصادر التوتر وكتابتها</td></tr>
+      <tr><td>الثاني</td><td>تناول وجبة واحدة دون هاتف</td></tr>
+      <tr><td>الثالث</td><td>المشي عشر دقائق بانتباه</td></tr>
+      <tr><td>الرابع</td><td>إيقاف الإشعارات غير الضرورية</td></tr>
+      <tr><td>الخامس</td><td>تخصيص خمس دقائق للجلوس بهدوء</td></tr>
+      <tr><td>السادس</td><td>كتابة الأفكار المقلقة والخطوات الممكنة</td></tr>
+      <tr><td>السابع</td><td>مراجعة ما أفادك واختيار عادتين للاستمرار فيهما</td></tr>
+    </tbody>
+  </table>
+
+  <h4>متى تحتاج إلى مساعدة متخصصة؟</h4>
+  <p>إذا استمر القلق أو الحزن مدة طويلة، أو أثّر في نومك أو دراستك أو عملك أو علاقاتك، فقد يكون من المفيد التحدث إلى مختص في الصحة النفسية. وإذا كانت الأعراض شديدة أو ظهرت أفكار بإيذاء النفس، فاطلب المساعدة المهنية العاجلة المناسبة.</p>
+  <p>لا يعني طلب المساعدة أنك فشلت في تحقيق التوازن، بل قد يكون خطوة مهمة لاستعادته.</p>
+
+  <h4>خاتمة</h4>
+  <p>استعادة الهدوء النفسي ليست مشروعًا تنجزه في يوم واحد، ولا تتطلب أن تعيش حياة خالية من المسؤوليات والمشكلات. إنها عملية تتكون من قرارات صغيرة: أن تتوقف قبل الاستجابة، وأن تنتبه إلى احتياجاتك، وأن تقلل مصادر التشتيت، وأن تمنح نفسك حق الراحة دون شعور دائم بالذنب.</p>
+  <p>ابدأ بعادة واحدة يمكنك الالتزام بها اليوم. لا تنتظر أن تصبح حياتك مثالية حتى تشعر بالسكينة؛ تعلّم أن تمنح نفسك لحظات من التوازن داخل الحياة التي تعيشها بالفعل.</p>
+
+  <div class="note">تنبيه: هذا المقال تثقيفي ولا يغني عن التقييم أو العلاج النفسي المتخصص عند الحاجة.</div>
+</article>
+
+<article class="post" id="article-2">
+  <div class="audio" data-target="article-2">
+    <button class="aplay" type="button">استمع إلى المقال</button>
+    <button class="astop" type="button">إيقاف</button>
+    <label>السرعة <select class="aspeed"><option value="0.6">0.6x</option><option value="0.75">0.75x</option><option value="1" selected>1x</option><option value="1.25">1.25x</option><option value="1.5">1.5x</option><option value="2">2x</option></select></label>
+    <span class="astatus"></span>
+    <div class="abar"><span></span></div>
+  </div>
+  <div class="meta">العلاج النفسي · القلق وتنظيم الأفكار · مدة القراءة: 9–11 دقيقة</div>
+  <h3>كيف تتعامل مع القلق والتفكير المفرط دون أن تستنزف طاقتك؟</h3>
+
+  <h4>مقدمة: عندما يتحول التفكير إلى عبء</h4>
+  <p>التفكير جزء أساسي من الحياة. نحن نفكر لنخطط، ونتعلم من أخطائنا، ونحل المشكلات، ونتخذ القرارات. لكن التفكير قد يتحول أحيانًا إلى دائرة متكررة تستنزف الطاقة دون أن تقود إلى حل واضح.</p>
+  <p>قد يسترجع الإنسان محادثة حدثت قبل أيام، ويتساءل عما إذا كان قد قال شيئًا خاطئًا. وقد يتخيل موقفًا لم يحدث بعد، ويعيش تفاصيله كما لو أنه يحدث الآن. وقد يحاول توقع كل الاحتمالات حتى يشعر أنه لن يفاجأ بأي شيء.</p>
+  <p>المشكلة أن التفكير المتكرر لا يمنحنا دائمًا مزيدًا من السيطرة. وفي بعض الأحيان، يزيد الإحساس بالخطر ويجعل اتخاذ القرار أكثر صعوبة.</p>
+  <p>يمكن تعلم طرق تساعد على التمييز بين التفكير المفيد والاجترار الذهني، والتعامل مع القلق بصورة أكثر مرونة.</p>
+
+  <h4>أولًا: افهم الفرق بين حل المشكلة والاجترار</h4>
+  <p>حل المشكلة يبدأ بسؤال واضح: ما المشكلة التي أواجهها، وما الخيارات المتاحة، وما الخطوة الممكنة الآن؟</p>
+  <p>أما الاجترار فيعيد الأسئلة نفسها دون الوصول إلى قرار جديد.</p>
+  <p>مثلًا، قد تقول لنفسك: «لقد ارتكبت خطأ في الحديث مع شخص ما. كيف يمكنني إصلاحه؟» هذا السؤال قد يقود إلى الاعتذار أو التوضيح.</p>
+  <p>لكن إذا استمررت في إعادة المحادثة عشرات المرات، وتخيلت جميع ردود فعل الشخص، وبدأت تحكم على نفسك بالكامل بسبب موقف واحد، فقد يتحول التفكير إلى دائرة مرهقة.</p>
+  <p>عندما تلاحظ تكرار الفكرة، اسأل نفسك:</p>
+  <ul>
+    <li>هل أكتشف معلومة جديدة؟</li>
+    <li>هل أقترب من حل عملي؟</li>
+    <li>هل توجد خطوة يمكنني القيام بها الآن؟</li>
+    <li>أم أنني أعيد السيناريو نفسه دون تغيير؟</li>
+  </ul>
+  <p>إذا كان هناك إجراء مفيد، فاكتبه وحدد متى ستقوم به. وإذا لم يكن هناك إجراء ممكن حاليًا، فحاول العودة إلى النشاط الذي كنت تقوم به بدل الاستمرار في البحث عن يقين كامل.</p>
+
+  <h4>ثانيًا: لا تعامل كل فكرة على أنها حقيقة</h4>
+  <p>قد تظهر في ذهنك أفكار مثل:</p>
+  <ul>
+    <li>«سأفشل بالتأكيد».</li>
+    <li>«الجميع يراقب تصرفاتي».</li>
+    <li>«إذا أخطأت مرة، فسأخسر كل شيء».</li>
+    <li>«لن أستطيع تحمل هذا الموقف».</li>
+  </ul>
+  <p>وجود الفكرة لا يجعلها حقيقة، كما أن الشعور بالخوف لا يثبت أن الخطر وشيك.</p>
+  <p>يمكنك التدرب على النظر إلى أفكارك من مسافة صغيرة. بدل أن تقول: «أنا فاشل»، جرّب: «تراودني الآن فكرة أنني قد أفشل».</p>
+  <p>هذا التغيير البسيط لا يمحو الفكرة، لكنه يذكرك بأنها حدث ذهني يمكن فحصه، وليست حكمًا نهائيًا على شخصيتك أو مستقبلك.</p>
+  <p>بعد ذلك، اسأل نفسك: ما الأدلة التي تدعم هذه الفكرة؟ وما الأدلة التي لا تتفق معها؟ وهل توجد طريقة أخرى أكثر واقعية لفهم الموقف؟</p>
+  <p>ليس المطلوب أن تستبدل كل فكرة سلبية بفكرة إيجابية مصطنعة. المطلوب هو الوصول إلى تقييم أكثر توازنًا.</p>
+
+  <h4>ثالثًا: تعلّم التعامل مع عدم اليقين</h4>
+  <p>أحد أسباب القلق هو الرغبة في ضمان أن كل شيء سيكون على ما يرام.</p>
+  <p>قد يراجع الشخص رسالة أرسلها عدة مرات، أو يسأل الآخرين باستمرار عما إذا كانوا غاضبين منه، أو يؤجل قرارًا لأنه يخشى اختيارًا غير مثالي.</p>
+  <p>لكن الحياة تتضمن قدرًا لا يمكن إزالته بالكامل من عدم اليقين.</p>
+  <p>التعامل الصحي مع هذا الواقع لا يعني تجاهل المخاطر، بل اتخاذ الاحتياطات المعقولة ثم قبول أن بعض النتائج لا يمكن التحكم فيها تمامًا.</p>
+  <p>جرّب التمييز بين ثلاثة أمور:</p>
+  <ul>
+    <li>ما يمكنك التحكم فيه مباشرة.</li>
+    <li>ما يمكنك التأثير فيه دون ضمان النتيجة.</li>
+    <li>ما يقع خارج نطاق سيطرتك.</li>
+  </ul>
+  <p>ضع طاقتك الأساسية في الفئة الأولى، وابذل جهدًا معقولًا في الثانية، وحاول ألا تستنزف نفسك بمحاولة التحكم في الثالثة.</p>
+
+  <h4>رابعًا: استخدم ورقة لتفريغ الأفكار</h4>
+  <p>عندما تتزاحم الأفكار، قد تبدو جميعها عاجلة. الكتابة تساعد على تحويل هذا التشابك إلى نقاط واضحة.</p>
+  <p>خصص عشر دقائق واكتب:</p>
+  <ul>
+    <li><strong>الموقف:</strong> ما الذي حدث فعلًا؟</li>
+    <li><strong>الفكرة:</strong> ما الذي أقوله لنفسي بشأن ما حدث؟</li>
+    <li><strong>الشعور:</strong> هل أشعر بالخوف أو الحزن أو الإحراج أو الغضب؟</li>
+    <li><strong>الأدلة:</strong> ما الذي أعرفه بالفعل، وما الذي أفترضه فقط؟</li>
+    <li><strong>الخطوة العملية:</strong> ما أصغر إجراء مفيد يمكنني اتخاذه؟</li>
+  </ul>
+  <p><strong>مثال:</strong></p>
+  <ul>
+    <li><strong>الموقف:</strong> لم يرد أحد أصدقائي على رسالتي.</li>
+    <li><strong>الفكرة:</strong> ربما لم يعد يريد الحديث معي.</li>
+    <li><strong>الشعور:</strong> القلق والحزن.</li>
+    <li><strong>الأدلة:</strong> لم تصلني إجابة بعد، لكنني لا أعرف السبب.</li>
+    <li><strong>الخطوة العملية:</strong> أواصل يومي، وأنتظر وقتًا مناسبًا قبل التفكير في إرسال رسالة أخرى.</li>
+  </ul>
+  <p>هذا التمرين لا يضمن اختفاء القلق، لكنه قد يساعدك على عدم تحويل نقص المعلومات إلى استنتاجات مؤكدة.</p>
+
+  <h4>خامسًا: واجه المواقف تدريجيًا بدل تجنبها دائمًا</h4>
+  <p>قد يجعل القلق الإنسان يتجنب المواقف التي يخشاها. يشعر براحة مؤقتة بعد الانسحاب، لكن التجنب المتكرر قد يعزز الاعتقاد بأن الموقف لا يمكن تحمله.</p>
+  <p>إذا كنت تخشى الحديث أمام الآخرين، فقد يكون البدء بمحادثة قصيرة مع شخص ترتاح إليه خطوة معقولة. ثم يمكنك التدرج إلى مواقف أكثر تحديًا حسب قدرتك.</p>
+  <p>وإذا كنت تخشى ارتكاب الأخطاء، فجرّب إنجاز مهمة صغيرة دون مراجعتها مرات لا تنتهي، مع مراعاة أن تكون المخاطر منخفضة.</p>
+  <p>المقصود ليس إجبار نفسك على موقف شديد الصعوبة دفعة واحدة، بل بناء الثقة من خلال خطوات تدريجية وآمنة.</p>
+  <p>وفي حالات القلق الشديد أو الرهاب، قد يساعد العلاج النفسي المتخصص، بما في ذلك العلاج المعرفي السلوكي وأساليب التعرض المناسبة.</p>
+
+  <h4>سادسًا: اهتم بالجسد أيضًا</h4>
+  <p>القلق ليس مجرد أفكار؛ فقد يصاحبه تسارع ضربات القلب أو شد العضلات أو اضطراب النوم أو تغيرات في التنفس.</p>
+  <p>لذلك قد تساعد بعض العادات الداعمة:</p>
+  <ul>
+    <li>الحفاظ على مواعيد نوم منتظمة قدر الإمكان.</li>
+    <li>الحركة اليومية المناسبة لقدرتك.</li>
+    <li>تناول وجبات منتظمة وعدم الاعتماد المفرط على المنبهات.</li>
+    <li>تخصيص فترات للراحة.</li>
+    <li>تقليل متابعة الأخبار والمحتوى المثير للقلق إذا لاحظت تأثيره عليك.</li>
+    <li>تجربة التنفس الهادئ دون إجبار النفس أو المبالغة في أخذ الأنفاس.</li>
+  </ul>
+  <p>إذا ظهرت أعراض جسدية جديدة أو شديدة أو غير معتادة، فلا تفترض أنها ناتجة عن القلق وحده؛ اطلب التقييم الطبي المناسب.</p>
+
+  <h4>سابعًا: خصص وقتًا للقلق بدل أن يرافقك طوال اليوم</h4>
+  <p>قد يجد بعض الناس فائدة في تخصيص فترة قصيرة يوميًا لمراجعة مخاوفهم وكتابة ما يمكن فعله بشأنها.</p>
+  <p>عندما تظهر فكرة مقلقة خارج هذه الفترة، يمكنك تدوينها وتأجيل مراجعتها إلى الوقت المحدد، ما دام التأجيل لا يتعلق بمشكلة عاجلة تحتاج إلى تصرف فوري.</p>
+  <p>خلال هذه الفترة، قسّم مخاوفك إلى مشكلات قابلة للحل ومخاوف لا يمكنك حسمها الآن.</p>
+  <p>بالنسبة للمشكلات العملية، حدد خطوة تالية. أما الأمور التي لا تتوفر بشأنها معلومات كافية، فاعترف بعدم اليقين دون محاولة حلها ذهنيًا إلى ما لا نهاية.</p>
+  <p>هذه الطريقة ليست مناسبة للجميع، لكنها قد تساعد بعض الأشخاص على تنظيم وقت التفكير.</p>
+
+  <h4>برنامج تطبيقي لمدة سبعة أيام</h4>
+  <table>
+    <thead><tr><th>اليوم</th><th>التمرين</th></tr></thead>
+    <tbody>
+      <tr><td>الأول</td><td>تسجيل أكثر ثلاث أفكار متكررة</td></tr>
+      <tr><td>الثاني</td><td>التمييز بين الحقائق والافتراضات</td></tr>
+      <tr><td>الثالث</td><td>كتابة مشكلة واحدة وخطوة عملية لحلها</td></tr>
+      <tr><td>الرابع</td><td>ملاحظة فكرة مقلقة دون التعامل معها كحقيقة</td></tr>
+      <tr><td>الخامس</td><td>تنفيذ مهمة صغيرة كنت تؤجلها بسبب الخوف</td></tr>
+      <tr><td>السادس</td><td>تخصيص عشر دقائق لمراجعة المخاوف</td></tr>
+      <tr><td>السابع</td><td>تقييم التمارين التي ساعدتك على التفكير بوضوح</td></tr>
+    </tbody>
+  </table>
+
+  <h4>متى ينبغي طلب المساعدة؟</h4>
+  <p>إذا أصبح القلق مستمرًا أو صعب السيطرة عليه، أو أدى إلى تجنب الدراسة والعمل والعلاقات، أو أثّر بشدة في النوم، فمن المناسب استشارة مختص في الصحة النفسية.</p>
+  <p>يمكن للعلاج النفسي أن يساعد على فهم أنماط التفكير وتطوير استراتيجيات مناسبة للتعامل معها. وقد يوصي الطبيب بخيارات أخرى وفق الحالة.</p>
+
+  <h4>خاتمة</h4>
+  <p>ليس عليك أن تمنع عقلك من التفكير حتى تعيش براحة أكبر. فالأفكار ستظهر، والمخاوف ستحدث أحيانًا، وعدم اليقين سيظل جزءًا من الحياة.</p>
+  <p>لكن يمكنك أن تتعلم عدم الانجرار خلف كل فكرة، وأن تميز بين المشكلة التي تحتاج إلى حل والفكرة التي تحتاج إلى تركها تمر، وأن تتخذ خطوات واقعية بدل البحث المستمر عن ضمانات لا تستطيع الحياة تقديمها.</p>
+  <p>ابدأ اليوم بملاحظة فكرة واحدة متكررة، واسأل نفسك: هل تساعدني هذه الفكرة على التقدم، أم أنها تعيدني إلى النقطة نفسها؟</p>
+
+  <div class="note">تنبيه: المقال للتثقيف العام، ولا يُعد تشخيصًا أو بديلًا للعلاج النفسي المتخصص.</div>
+</article>
+
+<h3 style="color:var(--blue-dark);margin:10px 0 14px">مقالات أخرى قريبًا</h3>
+<div class="grid" id="articleGrid">
+      <div class="card" data-text="القلق والتوتر تمارين التنفس"><div class="banner"><svg viewBox="0 0 300 160"><use href="#sPsych"/></svg></div><h3>خطوات بسيطة لتهدئة القلق</h3><p>مقال تجريبي عن تمارين التنفس اليومية.</p><span class="tag">العلاج النفسي</span></div>
+      <div class="card" data-text="التغذية المتوازنة الماء الترطيب"><div class="banner"><svg viewBox="0 0 300 160"><use href="#sBody"/></svg></div><h3>عادات الترطيب اليومية</h3><p>مقال تجريبي عن شرب الماء وأثره على الطاقة.</p><span class="tag">العلاج الجسدي</span></div>
+      <div class="card" data-text="التركيز الانتباه تنظيم الوقت"><div class="banner"><svg viewBox="0 0 300 160"><use href="#sMind"/></svg></div><h3>استعادة التركيز في زمن التشتت</h3><p>مقال تجريبي عن تقليل التشتت الرقمي.</p><span class="tag">العلاج العقلي</span></div>
+      <div class="card" data-text="الامتنان الشكر السكينة"><div class="banner"><svg viewBox="0 0 300 160"><use href="#sSpirit"/></svg></div><h3>الامتنان كممارسة يومية</h3><p>مقال تجريبي عن أثر الشكر في الطمأنينة.</p><span class="tag">العلاج الروحي</span></div>
+    </div>
+    <p class="empty hidden" id="noResults">لا توجد نتائج مطابقة.</p>
+  </div>
+</section>
+
+<section id="library">
+  <div class="wrap">
+    <h2>المكتبة والكتب</h2>
+    <p class="lead">كتب موصى بها. لا نعرض نسخًا مقرصنة، وطلب الكتاب يتم عبر نموذج الطلب.</p>
+    <div class="grid">
+      <div class="card book"><div class="cover">كتاب قريبًا</div><div><h3>عنوان الكتاب</h3><p>اسم المؤلف · الصحة النفسية</p><span class="tag">متوفر عند الطلب</span></div></div>
+      <div class="card book"><div class="cover">كتاب قريبًا</div><div><h3>عنوان الكتاب</h3><p>اسم المؤلف · تنمية العقل</p><span class="tag">متوفر عند الطلب</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="community">
+  <div class="wrap">
+    <h2>مجتمع الزوار</h2>
+    <p class="lead">قيّم الموقع وشاركنا رأيك. الآراء تجارب شخصية وليست ضمانًا لنتائج علاجية.</p>
+    <form class="contact" onsubmit="event.preventDefault();sendMail(this,'تقييم الموقع وآراء الزوار')">
+      <select required aria-label="القسم"><option value="">اختر القسم</option><option>العلاج النفسي</option><option>العلاج الجسدي</option><option>العلاج العقلي</option><option>العلاج الروحي</option><option>الموقع بشكل عام</option></select>
+      <select required aria-label="التقييم"><option value="">التقييم</option><option>★★★★★</option><option>★★★★</option><option>★★★</option><option>★★</option><option>★</option></select>
+      <textarea required placeholder="اكتب رأيك..." maxlength="800"></textarea>
+      <button class="btn" style="background:var(--blue);color:#fff;justify-self:start">أرسل الرأي</button>
+    </form>
+  </div>
+</section>
+
+<section id="submit">
+  <div class="wrap">
+    <h2>انشر مقالك على توازن</h2>
+    <p class="lead">تُراجع المقالات قبل النشر. النشر المدفوع (1 دولار أمريكي للمنشور المقبول) سيُفعَّل عند ربط بوابة دفع حقيقية.</p>
+    <div class="notice">لا تُنشر الروابط الضارة أو الاحتيالية أو المحتوى المسروق أو المخالف للقانون. المقالات الإعلانية تُعرض بوضوح كإعلان.</div>
+    <p style="color:var(--muted);margin-top:14px">حالة المنشور تبدأ بـ: مسودة ← بانتظار المراجعة ← بانتظار الدفع ← مقبول ← منشور.</p>
+  </div>
+</section>
+
+<section id="share">
+  <div class="wrap">
+    <h2>شارك معنا</h2>
+    <p class="lead">أرسل مشاركتك وستُراجع قبل أي نشر. لا تُنشر المشاركة تلقائيًا. عند الإرسال يفتح تطبيق البريد لديك برسالة جاهزة.</p>
+    <form class="contact" onsubmit="event.preventDefault();sendMail(this,'مشاركة جديدة من زائر')">
+      <input type="text" name="الاسم أو الاسم المستعار" required placeholder="الاسم أو الاسم المستعار">
+      <select name="نوع المشاركة" required><option value="">نوع المشاركة</option><option>مقال</option><option>تجربة شخصية</option><option>مورد مفيد</option><option>مكان أو موقع إلكتروني</option></select>
+      <input type="text" name="العنوان" required placeholder="عنوان المشاركة">
+      <textarea name="النص" required placeholder="نص المشاركة" style="min-height:180px"></textarea>
+      <input type="url" name="رابط" placeholder="رابط الموقع أو القناة (اختياري)">
+      <label style="font-size:.92rem;color:var(--muted)"><input type="checkbox" required style="width:auto"> أوافق على شروط النشر وسياسة الخصوصية</label>
+      <button class="btn" style="background:var(--blue);color:#fff;justify-self:start">أرسل للمراجعة</button>
+    </form>
+  </div>
+</section>
+
+<section class="alt" id="about">
+  <div class="wrap">
+    <h2>من نحن</h2>
+    <p class="lead">توازن موقع عربي يقدم محتوى تثقيفيًا منظمًا عن الصحة النفسية والجسدية والعقلية والروحية، بعيدًا عن التشخيص الطبي والوعود المبالغ فيها.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2>اتصل بنا</h2>
+    <p class="lead">أرسل رسالتك إلى إدارة الموقع.</p>
+    <form class="contact" id="contactForm">
+      <input type="text" required placeholder="الاسم" aria-label="الاسم">
+      <input type="email" required placeholder="البريد الإلكتروني" aria-label="البريد">
+      <textarea required placeholder="رسالتك..." aria-label="الرسالة"></textarea>
+      <button class="btn" style="background:var(--blue);color:#fff;justify-self:start">إرسال</button>
+    </form>
+    <div class="share">
+      <a href="https://wa.me/212725968984" target="_blank" rel="noopener">واتساب</a>
+      <a href="mailto:madhaqtabiei@gmail.com">البريد الإلكتروني</a>
+      <button type="button" id="copyBtn">نسخ رابط الصفحة</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<section class="alt" id="policies">
+  <div class="wrap">
+    <h2>السياسات والصفحات القانونية</h2>
+    <article class="post" id="privacy">
+      <h3>سياسة الخصوصية</h3>
+      <p>هذه النسخة من الموقع لا تجمع بيانات شخصية تلقائيًا، ولا تستخدم أدوات تحليل. تُحفظ على جهازك فقط تفضيلة الوضع الفاتح أو الداكن.</p>
+      <p>عند إرسال نموذج التواصل أو المشاركة أو التقييم، يفتح الموقع تطبيق البريد لديك برسالة جاهزة، ويرسلها أنت. لا تُحفظ هذه الرسائل على خوادم الموقع. أي تغيير مستقبلي في جمع البيانات سيُعلن هنا قبل تطبيقه.</p>
+    </article>
+    <article class="post" id="terms">
+      <h3>شروط الاستخدام</h3>
+      <p>المحتوى للتثقيف العام ولا يُعد تشخيصًا أو علاجًا. أنت مسؤول عن المحتوى الذي ترسله، ويحق للموقع رفض أي مشاركة تخالف السياسة أو تتضمن روابط ضارة أو احتيالية أو محتوى مسروقًا.</p>
+    </article>
+    <article class="post" id="medical">
+      <h3>إخلاء المسؤولية الطبية والنفسية</h3>
+      <p>المقالات تثقيفية، ولا تغني عن استشارة الطبيب أو المختص النفسي. لا تتوقف عن أي دواء دون استشارة طبيبك.</p>
+      <p>في حالات الطوارئ أو خطر إيذاء النفس، اتصل بخدمات الطوارئ في بلدك فورًا.</p>
+    </article>
+    <article class="post" id="submission">
+      <h3>سياسة نشر المشاركات</h3>
+      <p>تُراجع كل مشاركة قبل نشرها. يحق للإدارة قبول المشاركة أو طلب تعديلها أو رفضها. تُعرض المشاركات الإعلانية بوضوح كإعلان.</p>
+      <p>رسوم النشر ستُعلن هنا عند تحديد السعر وطريقة الدفع، ولن تُفعَّل قبل ذلك.</p>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div><h4>توازن | TAWAZON</h4><p style="margin:0;opacity:.85">محتوى تثقيفي للصحة النفسية والجسدية والعقلية والروحية.</p></div>
+      <div><h4>روابط</h4><p style="margin:0"><a href="#about">من نحن</a><br><a href="#contact">اتصل بنا</a><br><a href="#submit">انشر مقالك</a><br><a href="#policies">السياسات</a></p></div>
+      <div><h4>تواصل</h4><p style="margin:0"><a href="https://wa.me/212725968984" target="_blank" rel="noopener">واتساب</a><br><a href="mailto:madhaqtabiei@gmail.com">madhaqtabiei@gmail.com</a></p></div>
+    </div>
+    <div class="small">© توازن. المحتوى تثقيفي ولا يحل محل استشارة مختص. صفحات الخصوصية والشروط قيد الإعداد.</div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    const root = document.documentElement;
+    let saved = null;
+    try { saved = localStorage.getItem('tawazon-theme'); } catch (e) {}
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    root.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+    const btn = document.getElementById('themeBtn');
+    const sunIcon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+    const moonIcon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
+    function paint() {
+      const dark = root.getAttribute('data-theme') === 'dark';
+      btn.innerHTML = dark ? sunIcon : moonIcon;
+      btn.setAttribute('aria-label', dark ? 'الوضع الفاتح' : 'الوضع الداكن');
+    }
+    btn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('tawazon-theme', next); } catch (e) {}
+      paint();
+    });
+    paint();
+  })();
+  const menuBtn = document.getElementById('menuBtn');
+  const nav = document.getElementById('mainnav');
+  menuBtn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }));
+
+  const q = document.getElementById('q');
+  const cards = document.querySelectorAll('#articleGrid .card');
+  const noRes = document.getElementById('noResults');
+  q.addEventListener('input', () => {
+    const term = q.value.trim().toLowerCase();
+    let shown = 0;
+    cards.forEach(c => {
+      const text = (c.dataset.text + ' ' + c.textContent).toLowerCase();
+      const match = !term || text.includes(term);
+      c.classList.toggle('hidden', !match);
+      if (match) shown++;
+    });
+    noRes.classList.toggle('hidden', shown > 0 || !term);
+  });
+
+  document.getElementById('contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    sendMail(e.target, 'رسالة من الموقع');
+    e.target.reset();
+  });
+
+  document.getElementById('copyBtn').addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(location.href);
+      alert('تم نسخ الرابط');
+    } catch (err) {
+      alert('تعذر النسخ تلقائيًا');
+    }
+  });
+  function sendMail(form, subject) {
+    const lines = [];
+    [...form.elements].forEach(el => {
+      if (!el.value || el.type === 'checkbox' || el.type === 'button' || el.tagName === 'BUTTON') return;
+      const label = el.name || el.getAttribute('aria-label') || el.placeholder || '';
+      lines.push(label ? label + ': ' + el.value : el.value);
+    });
+    location.href = 'mailto:madhaqtabiei@gmail.com?subject=' + encodeURIComponent('توازن - ' + subject) + '&body=' + encodeURIComponent(lines.join('\n'));
+    form.reset();
+  }
+
+  (function () {
+    const synth = window.speechSynthesis;
+    document.querySelectorAll('.audio').forEach(box => {
+      const article = document.getElementById(box.dataset.target);
+      const playBtn = box.querySelector('.aplay');
+      const stopBtn = box.querySelector('.astop');
+      const speed = box.querySelector('.aspeed');
+      const status = box.querySelector('.astatus');
+      const bar = box.querySelector('.abar span');
+      if (!synth || !('SpeechSynthesisUtterance' in window)) {
+        playBtn.disabled = true;
+        status.textContent = 'متصفحك لا يدعم القراءة الصوتية';
+        return;
+      }
+      let parts = [], idx = 0, state = 'idle', token = 0;
+      const texts = () => [...article.querySelectorAll('h3,h4,p,li')].map(e => e.textContent.trim()).filter(Boolean);
+      function update() {
+        playBtn.textContent = state === 'playing' ? 'إيقاف مؤقت' : state === 'paused' ? 'متابعة' : 'استمع إلى المقال';
+        status.textContent = state === 'idle' ? '' : state === 'done' ? 'انتهت القراءة' : 'الفقرة ' + (idx + 1) + ' من ' + parts.length;
+        bar.style.width = parts.length ? ((idx + 1) / parts.length * 100) + '%' : '0%';
+      }
+      function speakAt(i) {
+        const my = ++token;
+        idx = i; state = 'playing'; update();
+        const u = new SpeechSynthesisUtterance(parts[idx]);
+        u.lang = 'ar-SA';
+        u.rate = parseFloat(speed.value);
+        u.onend = () => {
+          if (my !== token) return;
+          if (idx + 1 < parts.length) speakAt(idx + 1);
+          else { state = 'done'; update(); }
+        };
+        u.onerror = () => { if (my === token) { state = 'idle'; update(); } };
+        synth.speak(u);
+      }
+      playBtn.addEventListener('click', () => {
+        if (state === 'playing') { synth.pause(); state = 'paused'; }
+        else if (state === 'paused') { synth.resume(); state = 'playing'; }
+        else { synth.cancel(); parts = texts(); if (!parts.length) return; speakAt(0); return; }
+        update();
+      });
+      stopBtn.addEventListener('click', () => {
+        token++; synth.cancel(); state = 'idle'; idx = 0; update();
+      });
+      update();
+    });
+  })();
+</script>
+</body>
+</html>
